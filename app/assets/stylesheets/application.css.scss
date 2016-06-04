@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+ body {
+   background-color: #ccc;
+   font-family: 'Archivo Narrow', sans-serif;
+ }
+
+ .bold {
+   font-family: 'Archivo Black', sans-serif;
+ }
+
+ .jumbotron {
+   background-image: url(banner_2.png);
+   -webkit-background-size: 100% 100%;
+   -moz-background-size: 100% 100%;
+   -o-background-size: 100% 100%;
+   background-size: 100% 100%;
+   margin-top: -30px;
+ }
+
+ .push_spaces {
+   height: 300px;
+ }
+
+ * {
+   border-radius: 0% !important;
+ }
