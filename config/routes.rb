@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
+  resources :topics
   devise_for :users
-  get 'welcom/index'
-
-  get 'welcom/about'
 
   root 'welcom#index'
-  get 'about', to: 'welcom#about'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

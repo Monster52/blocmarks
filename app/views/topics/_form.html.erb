@@ -1,0 +1,9 @@
+<%= form_for @topic do |f| %>
+  <div class="form-group">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, class: 'form-control', placeholder: "Title", autofocus: true %>
+  </div>
+
+
+  <%= f.submit "Submit", class: 'btn btn-primary' %>
+<% end %>
