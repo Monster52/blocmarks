@@ -9,7 +9,12 @@
     <% @topics.each do |topic| %>
       <div class="media">
         <div class="media-heading">
-          <h3><%= link_to topic.title, topic %></h3>
+          <h2><%= link_to topic.title, topic %></h2>
+        </div>
+        <div class="media-body">
+          <% topic.bookmarks.each do |bookmark| %>
+            <h4><%= link_to bookmark.url, bookmark %></h4>
+          <% end %>
         </div>
       </div>
     <% end %>

@@ -3,6 +3,13 @@
     <h1><%= @topic.title %>
       <%= link_to '<span class="glyphicon glyphicon-minus red"></span>'.html_safe, @topic, method: :delete, data: {confirm: "All of your BlocMarks for this topic will be deleted with this action."}  %>
     </h1>
-    <p>Display all BlocMarks for this topic</p>
+
+    <h2>Bookmarks&nbsp;<%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_topic_bookmark_path(@topic) %></h2>
+    <% @topic.bookmarks.each do |bookmark| %>
+      <h2>
+        <small><%= link_to bookmark.url, bookmark.url %></small>
+      </h2>
+      <!-- Need to prefix urls with 'https://' -->
+    <% end %>
   </div>
 </div>
