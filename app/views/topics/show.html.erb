@@ -1,15 +1,17 @@
 <div class="row">
-  <div class="col-md-12">
-    <h1><%= @topic.title %>
-      <%= link_to '<span class="glyphicon glyphicon-minus red"></span>'.html_safe, @topic, method: :delete, data: {confirm: "All of your BlocMarks for this topic will be deleted with this action."}  %>
-    </h1>
+  <div class="col-md-7">
+    <h1><%= @topic.title %></h1>
+    <h2>Bookmarks</h2>
 
-    <h2>Bookmarks&nbsp;<%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_topic_bookmark_path(@topic) %></h2>
     <% @topic.bookmarks.each do |bookmark| %>
       <h2>
-        <small><%= link_to bookmark.url, bookmark.url %></small>
+        <small><%= link_to bookmark.url, bookmark %></small>
       </h2>
       <!-- Need to prefix urls with 'https://' -->
     <% end %>
   </div>
+
+  <div class="col-md-5 pull-right drop-20">
+    <%= link_to 'Add Bookmark', new_topic_bookmark_path(@topic), class: "btn btn-primary" %>
+    <%= link_to 'Delete Topic', @topic, class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure, all bookmarks associated with this topic will be deleted as well.'} %>
 </div>
