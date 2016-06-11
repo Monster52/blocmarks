@@ -17,7 +17,7 @@
         </div>
         <div class="media-body">
           <% topic.bookmarks.each do |bookmark| %>
-            <h4><%= link_to bookmark.url, "http://#{bookmark.url}" %></h4>
+            <h4><%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank" %></h4>
           <% end %>
         </div>
       </div>
