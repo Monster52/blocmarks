@@ -5,7 +5,7 @@
 
     <% @topic.bookmarks.each do |bookmark| %>
       <h2>
-        <small><%= link_to bookmark.url, bookmark %></small>
+        <small><%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark) %></small>
       </h2>
       <!-- Need to prefix urls with 'https://' -->
     <% end %>

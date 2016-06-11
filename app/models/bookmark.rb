@@ -1,12 +1,8 @@
 class Bookmark < ActiveRecord::Base
 
-  before_create :attach_http
-
   belongs_to :topic
 
-  private
+  validates :url, presence: true
+  validates :topic, presence: true
 
-  def attach_http
-    'http://' + url
-  end
 end

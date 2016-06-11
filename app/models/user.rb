@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 
   has_many :topics
 
+  validates :email, uniqueness: true, presence: true
+  validates :username, uniqueness: true, presence: true
+
+
   def login=(login)
     @login = login
   end

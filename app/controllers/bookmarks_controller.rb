@@ -1,5 +1,7 @@
 class BookmarksController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def show
     @bookmark = Bookmark.find(params[:id])
   end
@@ -55,6 +57,6 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:url, :id, :topic_id)
+    params.require(:bookmark).permit(:url)
   end
 end
