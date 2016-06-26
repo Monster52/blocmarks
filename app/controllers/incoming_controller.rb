@@ -1,6 +1,5 @@
 class IncomingController < ApplicationController
 
-  # http://stackoverflow.com/questions/1177863/how-do-i-ignore-the-authenticity-token-for-specific-actions-in-rails
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def index
@@ -8,13 +7,30 @@ class IncomingController < ApplicationController
 
   def create
     puts "INCOMING PARAMS HERE: #{params}"
-    @subject = Incoming.new(params[:subject])
-    @subject.save
 
-    @sender = Incoming.new(params[:from])
-    @sender.save
-    @body = Incoming.new(params[:'body-plain'])
-    @body.save
+    sender = params[:sender]
+    subject = params[:subject]
+    body = params["body-plain"]
+
+    if sender != nil
+      sender = User.find_by_email(sender)
+      sender_id = sender.id
+      sender_id.save
+    end
+
+    if subject != nil
+      subject = Topic.find_by_title("subject")
+      subject_id = subject.id
+      subject.save
+    end
+
+    if subject && sender
+      body = body
+      body.save
+    end
+
+    @bookmark = Bookmark.new(user_id = sender_id, topic_id = subject, url = body)
+    @bookmark.save
 
     head 200
   end
