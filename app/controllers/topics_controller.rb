@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @topics = Topic.all
+    @topics = policy_scope(Topic)
   end
 
   def show
@@ -16,6 +16,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.build(topic_params)
+    authorize @topic
 
     if @topic.save
       flash[:notice] = "Your Topic Saved."
@@ -33,6 +34,7 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
     @topic.assign_attributes(wiki_params)
+    authorize @topic
 
     if @topic.save
       flash[:notice] = "You Topic has been updated."
@@ -45,6 +47,7 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic = Topic.find(params[:id])
+    authorize @topic
 
     if @topic.destroy
       flash[:notice] = "Topic '#{@topic.title}' was deleted."

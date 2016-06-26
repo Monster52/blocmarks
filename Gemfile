@@ -24,6 +24,7 @@ ruby '2.3.0'
  gem 'pry'
  gem 'devise'
  gem 'haml'
+ gem 'pundit'
 
  group :development, :test do
    gem 'byebug'
