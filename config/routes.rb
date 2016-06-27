@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :bookmarks, except: [:index]
   end
 
-  resources :bookmarks, shallow: true do
+  resources :bookmarks, only: [] do
     resources :likes, only: [:index, :create, :destroy]
   end
 
