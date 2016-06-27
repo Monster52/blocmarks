@@ -5,10 +5,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :topics
+  has_many :bookmarks
+  has_many :likes, dependent: :destroy
 
   validates :email, uniqueness: true, presence: true
   validates :username, uniqueness: true, presence: true
 
+  def liked(bookmark)
+    likes.where(bookmark_id: bookmark.id).first
+  end
 
   def login=(login)
     @login = login
