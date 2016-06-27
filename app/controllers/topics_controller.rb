@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @topics = policy_scope(Topic)
+    @topics = Topic.all
   end
 
   def show
