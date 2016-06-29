@@ -1,0 +1,16 @@
+<h1><%= current_user.username %> Bookmarks</h1>
+
+  <% @bookmarks.each do |bookmark| %>
+    <%= link_to bookmark.url, "http://#{bookmark.url}", class: "btn btn-warning", target: "_blank" %>
+  <% end %>
+
+<h3><%= current_user.username %> <em>Liked</em> Bookmarks</h3>
+
+    <% @likes.each do |like| %>
+      <% liked = like.bookmark_id %>
+      <% @bookmarks.each do |bookmark| %>
+        <% if bookmark.id == liked %>
+          <%= link_to bookmark.url, "http://#{bookmark.url}", class: "btn btn-success", target: "_blank" %>
+        <% end %>
+      <% end %>
+    <% end %>
