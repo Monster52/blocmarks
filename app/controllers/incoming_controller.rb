@@ -22,7 +22,10 @@ class IncomingController < ApplicationController
     puts "Topic: #{subject}"
     puts "Body: #{body}"
 
-    @bookmark = Bookmark.new(user_id = user_id, topic = topic_id, url = body)
+    @bookmark = Bookmark.new
+    @bookmark.user_id = user_id
+    @bookmark.topic_id = topic_id
+    @bookmark.url = "#{body}"
     @bookmark.save
 
     head 200
