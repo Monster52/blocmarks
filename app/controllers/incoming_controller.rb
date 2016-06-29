@@ -11,8 +11,9 @@ class IncomingController < ApplicationController
     subject = params[:subject]
     body = params["body-plain"]
 
-    puts "#{sender}"
-    puts "#{sender_id}"
+    puts "User: #{sender}"
+    puts "Topic: #{subject}"
+    puts "Body: #{body}"
 
   #  @bookmark = Bookmark.new(user_id = sender_id, topic = subject_id, url = body)
   #  @bookmark.save
