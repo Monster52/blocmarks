@@ -10,7 +10,11 @@ class IncomingController < ApplicationController
     sender = params[:sender]
     user = User.find_by_email(sender)
     user_id = user.id
+
     subject = params[:subject]
+    topic = Topic.find_by_title(subject)
+    topic_id = topic.id
+
     body = params["body-plain"]
 
     puts "User: #{sender}"
@@ -18,8 +22,8 @@ class IncomingController < ApplicationController
     puts "Topic: #{subject}"
     puts "Body: #{body}"
 
-  #  @bookmark = Bookmark.new(user_id = sender_id, topic = subject_id, url = body)
-  #  @bookmark.save
+    @bookmark = Bookmark.new(user_id = user_id, topic = topic_id, url = body)
+    @bookmark.save
 
     head 200
   end
