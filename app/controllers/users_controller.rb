@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
     @bookmarks = policy_scope(Bookmark)
-    @likes = policy_scope(Like)
 
+    @likes_bookmarks = current_user.likes.collect(&:bookmark)
 
   end
 end
