@@ -8,10 +8,12 @@ class IncomingController < ApplicationController
   def create
 
     sender = params[:sender]
+    user_id = User.find_by_email(sender)
     subject = params[:subject]
     body = params["body-plain"]
 
     puts "User: #{sender}"
+    puts "User_id: #{user_id}"
     puts "Topic: #{subject}"
     puts "Body: #{body}"
 
