@@ -1,16 +1,26 @@
-<h1><%= current_user.username %> Bookmarks</h1>
+<div class="row">
+  <div class="col-md-12">
+  <h1><%= current_user.username %> Bookmarks</h1>
 
-  <% @bookmarks.each do |bookmark| %>
-    <%= link_to bookmark.url, "http://#{bookmark.url}", class: "btn btn-warning", target: "_blank" %>
-  <% end %>
+    <% @bookmarks.each do |bookmark| %>
+      <%= link_to bookmark.url, "http://#{bookmark.url}", class: "btn btn-warning", target: "_blank" %>
+    <% end %>
+    <hr>
+  </div>
+</div>
 
-<h3><%= current_user.username %> <em>Liked</em> Bookmarks</h3>
+<div class="row">
+  <div class="col-md-12">
+    <h3><%= current_user.username %> <em>Liked</em> Bookmarks</h3>
 
     <% @likes.each do |like| %>
       <% liked = like.bookmark_id %>
       <% @bookmarks.each do |bookmark| %>
         <% if bookmark.id == liked %>
           <%= link_to bookmark.url, "http://#{bookmark.url}", class: "btn btn-success", target: "_blank" %>
+          <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
         <% end %>
       <% end %>
     <% end %>
+  </div>
+</div>

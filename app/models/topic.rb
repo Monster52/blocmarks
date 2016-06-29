@@ -3,5 +3,4 @@ class Topic < ActiveRecord::Base
   has_many :bookmarks, dependent: :destroy
 
     validates :title, length: {minimum: 3}, presence: true
-    validates :user, presence: true
 end

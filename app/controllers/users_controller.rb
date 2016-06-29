@@ -5,5 +5,6 @@ class UsersController < ApplicationController
     @bookmarks = policy_scope(Bookmark)
     @likes = policy_scope(Like)
 
+
   end
 end
