@@ -17,11 +17,11 @@ class LikesController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:bookmark_id])
-    @like = current_user.likes.build(bookmark: @bookmark)
+    @like = current_user.likes.find(params[:id])
 
     if @like.destroy
       flash[:notice] = "\"#{@bookmark.url}\" unliked"
-      redirect_to [@bookmark.topic, @bookmark]
+      redirect_to [@bookmark.topic]
     else
       flash.now[:alert] = "There was an error liking this bookmark.  Please try again."
       redirect_to [@bookmark.topic, @bookmark]

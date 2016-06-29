@@ -11,10 +11,12 @@ class IncomingController < ApplicationController
     @subject = Incoming.new(params[:subject])
     @subject.save
 
-    @sender = Incoming.new(params[:from])
+    @sender = params[:from]
     @sender.save
-    @body = Incoming.new(params[:'body-plain'])
+    @body = params[:'body-plain']
     @body.save
+
+    #@bookmark = Bookmark.new = parms **
 
     head 200
   end
