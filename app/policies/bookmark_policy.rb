@@ -1,9 +1,13 @@
-class BookmarkPolicy
+class BookmarkPolicy < ApplicationPolicy
   attr_reader :user, :bookmark
 
   def initialize(user, bookmark)
     @user = user
     @bookmark = bookmark
+  end
+
+  def show?
+    user.present?
   end
 
   def create?

@@ -33,4 +33,5 @@ ruby '2.3.0'
    gem 'shoulda'
    gem 'faker'
    gem 'factory_girl_rails'
+   gem 'pundit-matchers', '~> 1.1.0'
  end

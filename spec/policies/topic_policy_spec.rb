@@ -1,10 +1,9 @@
 require 'rails_helper'
 
-describe BookmarkPolicy do
-  subject { BookmarkPolicy.new(user, bookmark) }
+describe TopicPolicy do
+  subject { TopicPolicy.new(user, topic) }
 
   let(:topic) { create(:topic) }
-  let(:bookmark) { create(:bookmark, topic: topic) }
 
   context "for a visitor" do
     let(:user) { nil }
@@ -31,7 +30,7 @@ describe BookmarkPolicy do
 
   context "for an authenticated / authorized user" do
     let(:user) { create(:user) }
-    let(:bookmark) { create(:bookmark, topic: topic, user_id: user.id) }
+    let(:topic) { create(:topic, user_id: user.id)}
 
     it { is_expected.to permit_action(:show)}
     it { is_expected.to permit_action(:create) }
