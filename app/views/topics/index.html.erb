@@ -1,9 +1,6 @@
 <div class="row">
-  <div class="col-md-7">
-    <h1>BlockMarks</h1>
-  </div>
-  <div class="col-md-5 pull-right drop-20">
-      <%= link_to 'New', new_topic_path, class: 'btn btn-primary' %>
+  <div class="col-md-12">
+    <h1>BlockMarks <%= link_to 'New Topic', new_topic_path, class: 'btn btn-primary' %></h1>
   </div>
 </div>
 
@@ -17,7 +14,11 @@
         </div>
         <div class="media-body">
           <% topic.bookmarks.each do |bookmark| %>
-            <h4><%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank" %></h4>
+            <div class="col-sm-4">
+              <h4><%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank" %></h4>
+              <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+
+            </div>
           <% end %>
         </div>
       </div>

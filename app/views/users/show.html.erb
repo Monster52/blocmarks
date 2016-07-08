@@ -3,22 +3,21 @@
   <h1><%= current_user.username %> Bookmarks</h1>
 
     <% @bookmarks.each do |bookmark| %>
+    <div class="col-sm-4">
       <h4><%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank" %></h4>
+    </div>
     <% end %>
-    <hr>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <h3><%= current_user.username %> <em>Liked</em> Bookmarks</h3>
-
+    <h3><em>Liked</em> Bookmarks</h3>
     <% @likes_bookmarks.each do |bookmark| %>
+    <div class="col-sm-4">
       <h4><%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank" %></h4>
       <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
-
+    </div>
     <% end %>
-
-
   </div>
 </div>

@@ -1,17 +1,17 @@
 <div class="row">
-  <div class="col-md-7">
+  <div class="col-md-12">
     <h1><%= @topic.title %></h1>
+    <%= link_to 'Add Bookmark', new_topic_bookmark_path(@topic), class: "btn btn-primary" %>
+    <%= link_to 'Delete Topic', @topic, class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure, all bookmarks associated with this topic will be deleted as well.'} %>
     <h2>Bookmarks</h2>
 
     <% @topic.bookmarks.each do |bookmark| %>
-      <h2>
-        <small><%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark) %></small>
-      </h2>
-      <!-- Need to prefix urls with 'https://' -->
+      <div class="col-sm-4">
+        <h4>
+          <%= link_to bookmark.url, topic_bookmark_path(@topic, bookmark) %>
+          <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+        </h4>
+      </div>
     <% end %>
   </div>
-
-  <div class="col-md-5 pull-right drop-20">
-    <%= link_to 'Add Bookmark', new_topic_bookmark_path(@topic), class: "btn btn-primary" %>
-    <%= link_to 'Delete Topic', @topic, class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure, all bookmarks associated with this topic will be deleted as well.'} %>
 </div>
