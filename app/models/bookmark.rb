@@ -1,4 +1,6 @@
 class Bookmark < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :url, use: [:slugged, :history]
 
   belongs_to :topic
 

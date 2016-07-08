@@ -7,7 +7,10 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
+    if request.path != topic_path(@topic)
+      redirect_to @topic, status: :moved_permanently
+    end
   end
 
   def new
@@ -28,11 +31,11 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
   end
 
   def update
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
     @topic.assign_attributes(wiki_params)
     authorize @topic
 
@@ -46,7 +49,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
     authorize @topic
 
     if @topic.destroy

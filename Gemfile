@@ -26,6 +26,8 @@ ruby '2.3.0'
  gem 'haml'
  gem 'pundit'
  gem 'link_thumbnailer'
+ gem 'friendly_id'
+
 
  group :development, :test do
    gem 'byebug'
