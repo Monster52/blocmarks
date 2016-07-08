@@ -3,7 +3,6 @@
   <h1><%= current_user.username %> Bookmarks</h1>
 
     <% @bookmarks.each do |bookmark| %>
-      <h3><%= bookmark.topic.title %></h3>
       <h4><%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank" %></h4>
     <% end %>
     <hr>
@@ -15,7 +14,6 @@
     <h3><%= current_user.username %> <em>Liked</em> Bookmarks</h3>
 
     <% @likes_bookmarks.each do |bookmark| %>
-      <h3><%= bookmark.topic.title %></h3>
       <h4><%= link_to bookmark.url, "http://#{bookmark.url}", target: "_blank" %></h4>
       <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
 
