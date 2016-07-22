@@ -1,23 +1,29 @@
+<%= render partial: 'layouts/jumbo' %>
 
-= render partial: 'layouts/jumbo'
-.container
-  .row
-    .col-md-4
-      %h3.text-center.bold Save
-      %h4.text-center
-        Save Bookmarks for your personal use so you dont get lost in this big world
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3 class="text-center bold">Save</h3>
+      <h4 class="text-center">
+        Save Bookmarks for your personal use so you don't get lost in this big world
         of the internet.
-
-    .col-md-4
-      %h3.text-center.bold Share
-      %h4.text-center
-        Share Bookmarks if you want to help guide you fellow internet wonderers.
-
-    .col-md-4
-      %h3.text-center.bold Email
-      %h4.text-center
+      </h4>
+    </div>
+    <div class="col-md-4">
+      <h3 class="text-center bold">Save</h3>
+      <h4 class="text-center">
+        Share Bookmarks if you want to help guide your fellow internet wonderers.
+      </h4>
+    </div>
+    <div class="col-md-4">
+      <h3 class="text-center bold">Save</h3>
+      <h4 class="text-center">
         User our API to email bookmarks to your account for quick access when offsite.
+      </h4>
+    </div>
+  </div>
+</div>
 
-        <% content_for :analytic do %>
-          <script type="text/javascript"> $(document).ready(function(){ blocmetrics.report("page visit"); }); </script>
-        <% end %>
+<% content_for :analytic do %>
+  <script type="text/javascript"> $(document).ready(function(){ blocmetrics.report("page visit"); }); </script>
+<% end %>
