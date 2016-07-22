@@ -17,3 +17,7 @@
       %h3.text-center.bold Email
       %h4.text-center
         User our API to email bookmarks to your account for quick access when offsite.
+
+        <% content_for :analytic do %>
+          <script type="text/javascript"> $(document).ready(function(){ blocmetrics.report("page visit"); }); </script>
+        <% end %>
