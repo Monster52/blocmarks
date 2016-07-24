@@ -7,3 +7,7 @@
 
   <%= f.submit "Submit", class: 'btn btn-primary' %>
 <% end %>
+
+<% content_for :analytic do %>
+  <script type="text/javascript"> $(document).ready(function(){ blocmetrics.report("topics page"); }); </script>
+<% end %>

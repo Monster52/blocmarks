@@ -45,3 +45,7 @@
     <%= link_to "Back", :back %>
     </div>
 </div>
+
+<% content_for :analytic do %>
+  <script type="text/javascript"> $(document).ready(function(){ blocmetrics.report("user page"); }); </script>
+<% end %>
