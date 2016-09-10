@@ -27,6 +27,7 @@ ruby '2.3.0'
  gem 'pundit'
  gem 'link_thumbnailer'
  gem 'friendly_id'
+ gem 'capybara', '2.4.0'
  gem "codeclimate-test-reporter", group: :test, require: nil
 
 
