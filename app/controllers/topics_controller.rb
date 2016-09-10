@@ -36,7 +36,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.friendly.find(params[:id])
-    @topic.assign_attributes(wiki_params)
+    @topic.assign_attributes(topic_params)
     authorize @topic
 
     if @topic.save
